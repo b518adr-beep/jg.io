@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f2d1f">
+<title>مراعي تيماء | الذبائح الطازجة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="topbar">✦ ذبائح بلدية طازجة من مراعي تيماء إلى باب بيتك ✦</div>
+<header class="header"><div class="container nav">
+<a class="brand" href="#" aria-label="مراعي تيماء"><span class="brand-mark">م</span><span><strong>مراعي تيماء</strong><small>MARA'I TAYMA · من المرعى إلى مائدتكم</small></span></a>
+<div class="nav-actions"><button class="btn btn-outline admin-link" onclick="showAdminLogin()">دخول الإدارة</button><button class="btn btn-primary cart-btn" onclick="openCart()">🛒 السلة <span class="count" id="cartCount">0</span></button></div>
+</div></header>
+
+<main id="storePage">
+<section class="hero"><div class="container"><div class="hero-card"><div class="hero-copy">
+<span class="eyebrow">أصالة تيماء وجودة نختارها لكم</span>
+<h1>من مراعي تيماء<br><span>إلى مائدتكم طازجًا</span></h1>
+<p>ذبائح نعيمي وحري وتيوس بلدية تُذبح يوم طلبك، تُقطّع على ذوقك، وتصلك مبردة لباب البيت. لا تجميد ولا وسطاء.</p>
+<div class="hero-actions"><button class="btn btn-gold" onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})">تسوّق الذبائح ←</button><button class="btn btn-ghost" onclick="document.getElementById('howSection').scrollIntoView({behavior:'smooth'})">كيف تطلب؟</button></div>
+</div></div></div></section>
+
+<section class="container"><div class="trust-grid">
+<div class="trust"><span class="trust-icon">🐑</span><span><b>اختيار بعناية</b><small>أصناف بلدية مختارة</small></span></div>
+<div class="trust"><span class="trust-icon">❄️</span><span><b>تجهيز وتبريد</b><small>عناية بالتجهيز والتغليف</small></span></div>
+<div class="trust"><span class="trust-icon">🚚</span><span><b>توصيل للمنزل</b><small>حدد الموعد المناسب لك</small></span></div>
+</div></section>
+
+<section class="section container" id="productsSection"><div class="section-head"><div><h2>اختر ذبيحتك</h2><p>اختر الصنف والتقطيع والتغليف المناسب لك</p></div></div>
+<div class="filters" id="filters"><button class="filter active" data-filter="الكل">الكل</button><button class="filter" data-filter="نجدي">نجدي</button><button class="filter" data-filter="نعيمي">نعيمي</button><button class="filter" data-filter="حري">حري</button><button class="filter" data-filter="تيس">تيس</button></div>
+<div class="products" id="products"></div></section>
+
+<section class="section container" id="howSection"><div class="how"><div class="section-head"><div><h2>كيف تطلب؟</h2><p>خطوات بسيطة حتى تصلك ذبيحتك</p></div></div><div class="steps">
+<div class="step"><div class="step-num">١</div><strong>اختر الذبيحة</strong><p>حدد الصنف والوزن التقريبي وخيارات التقطيع والتغليف.</p></div>
+<div class="step"><div class="step-num">٢</div><strong>أدخل بياناتك</strong><p>اكتب رقم جوالك وعنوان التوصيل والموعد المناسب.</p></div>
+<div class="step"><div class="step-num">٣</div><strong>نجهّز طلبك</strong><p>نراجع طلبك ونتواصل معك لتأكيد التفاصيل قبل التجهيز.</p></div>
+</div></div></section>
+</main>
+
+<main id="adminPage" class="hidden"><div class="container admin-wrap"><div class="admin-card"><div class="section-head"><div><h2>لوحة إدارة مراعي تيماء</h2><p>إدارة المنتجات والأسعار والطلبات</p></div><button class="btn btn-outline" onclick="exitAdmin()">العودة للمتجر</button></div><div class="admin-tabs"><button class="active" data-tab="productsTab" onclick="switchTab('productsTab',this)">المنتجات والأسعار</button><button data-tab="ordersTab" onclick="switchTab('ordersTab',this)">الطلبات</button></div><div id="productsTab"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h3>قائمة المنتجات</h3><button class="btn btn-primary" onclick="editProduct()">＋ إضافة منتج</button></div><div class="table-scroll"><table class="admin-table"><thead><tr><th>الصنف</th><th>السعر (ر.س)</th><th>الوزن</th><th>الحالة</th><th>إجراءات</th></tr></thead><tbody id="adminProducts"></tbody></table></div></div><div id="ordersTab" class="hidden"><h3>الطلبات الواردة</h3><div class="table-scroll"><table class="admin-table"><thead><tr><th>رقم الطلب</th><th>العميل</th><th>الجوال</th><th>الإجمالي</th><th>الموعد</th><th>الحالة</th><th>تحديث</th></tr></thead><tbody id="adminOrders"></tbody></table></div></div></div></div></main>
+
+<footer class="footer"><div class="container footer-inner"><div><div style="font-size:25px;font-weight:900;color:var(--gold2)">مراعي تيماء</div><p>ذبائح بلدية طازجة<br>من مراعي تيماء إلى مائدتكم.</p></div><div><b>خدمة العملاء</b><p>للاستفسارات وتأكيد الطلبات<br><a id="footerPhone" href="tel:0553375517">0553375517</a></p><small>© <span id="year"></span> مراعي تيماء</small></div></div></footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/966553375517" target="_blank" rel="noopener" aria-label="واتساب">💬</a>
+
+<div class="overlay" id="cartOverlay" onclick="if(event.target===this)closeCart()"><aside class="drawer"><div class="drawer-head"><h2>سلة المشتريات</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartItems"></div><div class="cart-total"><span>الإجمالي</span><span id="cartTotal">0 ر.س</span></div><hr style="border:0;border-top:1px solid var(--line)"><h3 style="color:var(--green)">بيانات التوصيل</h3><form id="checkoutForm" onsubmit="submitOrder(event)">
+<div class="form-grid"><div class="form-group"><label>الاسم الكامل *</label><input name="name" required placeholder="اسم المستلم"></div><div class="form-group"><label>رقم الجوال *</label><input name="phone" required inputmode="tel" pattern="[0-9+ ]{9,15}" placeholder="05xxxxxxxx"></div></div>
+<div class="form-group"><label>المدينة والحي *</label><input name="district" required placeholder="المدينة - الحي"></div><div class="form-group"><label>العنوان بالتفصيل *</label><textarea name="address" rows="2" required placeholder="الشارع، رقم المنزل، أقرب معلم"></textarea></div>
+<div class="form-grid"><div class="form-group"><label>موعد التوصيل *</label><input name="date" type="date" required id="deliveryDate"></div><div class="form-group"><label>الفترة المناسبة</label><select name="time"><option>صباحاً ٨ ص - ١٢ م</option><option>ظهراً ١٢ م - ٤ م</option><option>مساءً ٤ م - ١٠ م</option></select></div></div>
+<div class="form-group"><label>ملاحظات إضافية</label><textarea name="notes" rows="2" placeholder="أي تفاصيل إضافية لطلبك"></textarea></div>
+<p class="hint">سيتم حفظ الطلب في سجل المتجر على هذا الجهاز، ويجب التواصل مع المتجر لتأكيد الطلب والتوفر النهائي.</p><button class="btn btn-primary" style="width:100%" type="submit">إرسال الطلب</button></form></aside></div>
+
+<div class="modal-back" id="productModal"><div class="modal"><div style="display:flex;justify-content:space-between;align-items:center"><h3 id="modalTitle">تخصيص الذبيحة</h3><button class="close" onclick="closeProductModal()">×</button></div><form id="customForm" onsubmit="addToCart(event)"><input type="hidden" id="customId">
+<div class="form-group"><label>طريقة التقطيع</label><select id="cut"><option>تقطيع ثلاجة</option><option>مفطح</option><option>سليق</option><option>نصفين</option><option>بدون تقطيع</option></select></div>
+<div class="form-group"><label>التغليف</label><select id="pack"><option>تغليف عادي</option><option>تغليف فاكيوم</option><option>تغليف منفصل حسب الطلب</option></select></div>
+<div class="form-group"><label>الوزن المطلوب</label><select id="weight"><option>حسب الوزن المتاح</option><option>صغير</option><option>وسط</option><option>كبير</option></select></div>
+<div class="form-group"><label>الكمية</label><input id="customQty" type="number" min="1" max="10" value="1" required></div><p class="hint">الأوزان تقريبية ويُؤكد الوزن والسعر النهائي مع العميل قبل التجهيز.</p><button class="btn btn-primary" style="width:100%">إضافة إلى السلة</button></form></div></div>
+<div class="modal-back" id="loginModal"><div class="modal"><div style="display:flex;justify-content:space-between;align-items:center"><h3>دخول الإدارة</h3><button class="close" onclick="hideLogin()">×</button></div><form onsubmit="adminLogin(event)"><div class="form-group"><label>كلمة المرور</label><input id="adminPassword" type="password" required placeholder="أدخل كلمة المرور"></div><button class="btn btn-primary" style="width:100%">دخول</button><p class="hint">كلمة المرور الافتراضية: Tayma2026 (غيّرها داخل الكود قبل النشر).</p></form></div></div>
+<div class="modal-back" id="editModal"><div class="modal"><div style="display:flex;justify-content:space-between;align-items:center"><h3 id="editTitle">إضافة منتج</h3><button class="close" onclick="closeEdit()">×</button></div><form onsubmit="saveProduct(event)"><input type="hidden" id="editId"><div class="form-group"><label>اسم الصنف</label><input id="editName" required placeholder="مثال: نعيمي"></div><div class="form-grid"><div class="form-group"><label>السعر (ريال)</label><input id="editPrice" type="number" min="0" required></div><div class="form-group"><label>الوزن التقريبي</label><input id="editWeight" required placeholder="مثال: 35-45 كجم"></div></div><div class="form-group"><label>العمر / الوصف</label><input id="editDesc" required></div><div class="form-group"><label>رابط الصورة (اختياري)</label><input id="editImage" type="url" placeholder="https://..."></div><div class="form-group"><label>شارة المنتج</label><input id="editTag" placeholder="اختيار مميز"></div><button class="btn btn-primary" style="width:100%">حفظ المنتج</button></form></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
